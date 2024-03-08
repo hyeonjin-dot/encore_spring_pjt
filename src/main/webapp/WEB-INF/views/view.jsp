@@ -26,6 +26,7 @@
                     <div class="box-content">
 
 
+<input type="hidden" name="idx" value="${response.idx}" />
 
 
     <div class="card-content">
@@ -67,16 +68,17 @@
         <div class="btn_wrap text-center">
             <a  href="/board/list.hanwha"
                 class="btn btn-default waves-effect waves-light">뒤로가기</a>
-            <a  href="javascript:void(0)" 
-                class="btn btn-primary waves-effect waves-light"
-                onclick="writePage();">수정하기</a>
+            <a  href="/board/write.hanwha?idx=${response.idx}"
+                class="btn btn-primary waves-effect waves-light">수정하기</a>
+<%--            <a  href="/board/delete.hanwha?idx=${response.idx}"--%>
+<%--                class="btn btn-danger waves-effect waves-light">삭제하기</a>--%>
             
             <button type="button" class="btn btn-danger waves-effect waves-light" id="delBtn">삭제하기</button>
         </div>
     </div>
 
     <div class="box-content">
-        <div class="card-content">
+        <div class="card-co ntent">
             <div class="clearfix">
                 <h4 class="box-title pull-left">Comment</h4>
             </div>
@@ -126,9 +128,22 @@
 	    
         			
         <script>
-        /*<![CDATA[*/
-
-        /*]]>*/
+            /*<![CDATA[*/
+            $(document).ready(function() {
+                $("#delBtn").click(function() {
+                    //window.alert("버튼을 클릭하셨습니다.");
+                    //console.log(">>>>>>>>>>>>>>");
+                    console.log(location.search);
+                    //console.log(">>>>>>>>>>>>>>");
+                    const idx = $("#idx").val();
+                    if(!confirm(idx + "번 게시글을 삭제할까요?")) {
+                        return false;
+                    } else {
+                        location.href="/board/delete.hanwha"+location.search;
+                    }
+                })
+            });
+            /*]]>*/
         </script>
 </body>
 </html>

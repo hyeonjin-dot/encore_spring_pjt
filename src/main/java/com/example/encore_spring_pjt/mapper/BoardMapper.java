@@ -26,4 +26,6 @@ public interface BoardMapper {
     public void deleteByIdx(BoardRequest params);
     //select multi finder
     public List<BoardResponse> findAll();
+    //조회수 증가
+    public void updateByCnt(BoardRequest params);
 }

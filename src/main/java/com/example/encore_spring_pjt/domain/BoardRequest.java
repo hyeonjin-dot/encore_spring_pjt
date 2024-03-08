@@ -8,13 +8,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Builder
+//@Builder
 public class BoardRequest {
     private Integer idx;
     private String title;
     private String content;
     private String writer;
-    private Boolean noticeYn;
-    private Boolean secretYn;
+    private boolean noticeYn;
+    private boolean secretYn;
 
 }

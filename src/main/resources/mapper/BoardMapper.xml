@@ -41,7 +41,7 @@
         #{writer},
         0,
         #{noticeYn},
-        #{secretYn},
+        false,
         false,
         NOW(),
         NULL )
@@ -93,6 +93,14 @@
         FROM    ENCORE_BOARD_TBL
         WHERE   DELETE_YN = 0
     </select>
+
+    <update id="updateByCnt"
+            parameterType="com.example.encore_spring_pjt.domain.BoardRequest">
+        UPDATE  encore.encore_board_tbl
+        SET     view_cnt = view_cnt + 1
+        WHERE   idx = #{idx}
+    </update>
+
 
 
 </mapper>

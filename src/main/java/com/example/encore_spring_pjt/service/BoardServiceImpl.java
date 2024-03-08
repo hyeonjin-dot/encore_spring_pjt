@@ -35,7 +35,7 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public BoardResponse findBoard(BoardRequest params) {
         System.out.println("debug >>>> board service findBoard : " + boardMapper);
-    
+        boardMapper.updateByCnt(params);
         return boardMapper.findByIdx(params) ;
     }
 

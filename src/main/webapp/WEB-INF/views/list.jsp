@@ -48,14 +48,16 @@
                             </thead>
                             <tbody>
 
-                            <tr>
-                                <td>1</td>
-                                <td class="text-left"><a href="/board/view.hanwha?idx=1">다 나가주세요</a></td>
-                                <td>ee</td>
-                                <td>2024-03-07</td>
-                                <td>357</td>
-                            </tr>
 
+                            <c:forEach items="${lst}" var="row" varStatus ="status">
+                                <tr>
+                                    <td>${status.count}</td>
+                                    <td class="text-left"><a href="./view.hanwha?idx=${row.idx}">${row.title}</a></td>
+                                    <td>${row.writer}</td>
+                                    <td>${row.insertTime}</td>
+                                    <td>${row.viewCnt}</td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
 
