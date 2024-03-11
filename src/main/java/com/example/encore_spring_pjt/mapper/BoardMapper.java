@@ -11,13 +11,14 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface BoardMapper {
     //insert
     public void save(BoardRequest params);
     //select (single finder)
-    public BoardResponse findByIdx(BoardRequest params);
+    public Optional<BoardResponse> findByIdx(BoardRequest params);
     //update(title, content, writer) - idx
     public void updateByIdx(BoardRequest params);
     //레코드의 건수를 cnt

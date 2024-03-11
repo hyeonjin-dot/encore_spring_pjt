@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/board") // http://serverip:port/board
@@ -49,7 +50,7 @@ public class BoardController {
          * response객체를 반환받달
          * 해당 response객체를 Model에 심어서 View페이지로 전달
          */
-        BoardResponse response = service.findBoard(params);
+        Optional<BoardResponse> response = service.findBoard(params);
         model.addAttribute("response", response);
 
         return "view";
@@ -61,7 +62,7 @@ public class BoardController {
         System.out.println("debug >>>>> " + params);
         if(params.getIdx() != null) {
             System.out.println("debug >>>> update");
-            BoardResponse response = service.findBoard(params);
+            Optional<BoardResponse> response = service.findBoard(params);
             model.addAttribute("response", response);
         }
         return "write";

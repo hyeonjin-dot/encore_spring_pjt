@@ -54,6 +54,7 @@
         SELECT  <include refid="selectColumns" />
         FROM    ENCORE_BOARD_TBL
         WHERE   IDX = #{idx}
+        AND     DELETE_YN = false
 
 
     </select>

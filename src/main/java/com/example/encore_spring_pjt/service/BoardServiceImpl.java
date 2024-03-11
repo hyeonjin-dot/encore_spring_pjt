@@ -1,6 +1,7 @@
 package com.example.encore_spring_pjt.service;
 
 import java.util.List;
+import java.util.Optional;
 
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,11 +33,13 @@ public class BoardServiceImpl implements BoardService{
         return params.getIdx();
     }
 
+    @Transactional
     @Override
-    public BoardResponse findBoard(BoardRequest params) {
-        System.out.println("debug >>>> board service findBoard : " + boardMapper);
+    public Optional<BoardResponse> findBoard(BoardRequest params) {
+        System.out.println("debug >>>> service findBoard");
         boardMapper.updateByCnt(params);
-        return boardMapper.findByIdx(params) ;
+        Optional<BoardResponse> response = boardMapper.findByIdx(params);
+        return response;
     }
 
     @Transactional
